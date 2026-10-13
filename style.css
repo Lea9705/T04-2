@@ -373,3 +373,10 @@ tbody tr:hover {
     justify-content: center;
   }
 }
+
+/* ---------- T04-3: responsive chart container ---------- */
+.responsive-svg-container {
+  margin: 0 auto;    /* center */
+  width: 100%;       /* fill parent width */
+  max-width: 1200px; /* cap max width */
+}
