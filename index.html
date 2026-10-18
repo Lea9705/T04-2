@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wattwise — Appliance Energy Consumption</title>
+  <meta name="description" content="A demonstration site exploring appliance energy consumption in the Australian market, built for COS30045." />
   <link rel="icon" type="image/png" href="logo.png" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
@@ -13,29 +14,198 @@
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
-      <a href="#home" class="logo" aria-label="Wattwise — go to home page">
+      <a href="#home" class="logo" data-page="home" aria-label="Wattwise — go to home page">
         <img class="logo-icon" src="logo.png" alt="" width="34" height="34" />
         <span class="logo-text">Wattwise</span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
-        <li><a href="#televisions" class="nav-link">Televisions</a></li>
-        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
+        <li><a href="#televisions" class="nav-link" data-page="televisions">Televisions</a></li>
+        <li><a href="#about" class="nav-link" data-page="about">About Us</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="page">
-    <h1>Appliance Energy Consumption</h1>
-    <div id="content"></div>
+  <main>
+    <!-- ===================== HOME PAGE ===================== -->
+    <section id="page-home" class="page">
+      <h1>Appliance Energy Consumption</h1>
+      <div id="content"></div>
 
-    <!-- Give the SVG a size so shapes can be seen -->
-    <svg width="300" height="150"></svg>
+      <!-- Give the SVG a size so shapes can be seen -->
+      <svg width="300" height="150"></svg>
 
-    <!-- NEW: Container for T04-3 chart -->
-    <div class="responsive-svg-container"></div>
+      <!-- NEW: Container for T04-3 chart -->
+      <div class="responsive-svg-container"></div>
+    </section>
+
+    <!-- ===================== TELEVISIONS PAGE ===================== -->
+    <section id="page-televisions" class="page" hidden>
+      <h1>Televisions &amp; energy use</h1>
+      <p class="page-lede">
+        Two TVs sitting side by side on a showroom floor could cost wildly different amounts to run, even if they look almost identical. 
+        The most efficient TV currently registered in Australia uses just 51 kWh a year. The least efficient uses 2,652 kWh, 52 times more. 
+        What actually drives that gap? And what should you check before you buy? Let's find out.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <caption>Average energy use by screen size, across 5,018 registered models</caption>
+          <thead>
+            <tr>
+              <th scope="col">Screen size</th>
+              <th scope="col">Registered models</th>
+              <th scope="col">Avg. energy use (kWh/yr)</th>
+              <th scope="col">Avg. star rating</th>
+              <th scope="col">Est. annual cost*</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Up to 32"</td>
+              <td>576</td>
+              <td>105</td>
+              <td>5.1</td>
+              <td>$34</td>
+            </tr>
+            <tr>
+              <td>33"–43"</td>
+              <td>650</td>
+              <td>208</td>
+              <td>4.9</td>
+              <td>$69</td>
+            </tr>
+            <tr>
+              <td>44"–50"</td>
+              <td>492</td>
+              <td>287</td>
+              <td>4.8</td>
+              <td>$95</td>
+            </tr>
+            <tr>
+              <td>51"–55"</td>
+              <td>813</td>
+              <td>360</td>
+              <td>4.7</td>
+              <td>$119</td>
+            </tr>
+            <tr>
+              <td>56"–65"</td>
+              <td>958</td>
+              <td>484</td>
+              <td>4.7</td>
+              <td>$160</td>
+            </tr>
+            <tr>
+              <td>66"–75"</td>
+              <td>767</td>
+              <td>607</td>
+              <td>4.9</td>
+              <td>$200</td>
+            </tr>
+            <tr>
+              <td>76" and up</td>
+              <td>762</td>
+              <td>878</td>
+              <td>4.8</td>
+              <td>$290</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-note">
+          Energy use and star ratings are averages of each model's own GEMS "labelled
+          energy consumption" figure. *Cost assumes $0.33/kWh, a rough 2026 national
+          average residential electricity price; your actual bill depends on your
+          state, retailer and tariff.
+        </p>
+      </div>
+
+      <p class="chart-label">Q1: What type of TV screen technologies are currently available in Australia and which are the most frequent?</p>
+      <img src="Bar_Chart_Q1.png" alt="Bar chart of screen technology frequency" class="chart-img"/>
+      <p>Before diving into specifics, it helps to know what's actually being sold. Looking at every registered TV in Australia, LCD (LED) screens dominate the market by far, making up the vast majority of models, followed by plain LCD and then OLED. If you're shopping today, LCD (LED) is what you'll see the most of on the shelf.</p>
+
+      <p class="chart-label">Q2: What screen sizes are currently available, and which are the most frequent?</p>
+      <img src="Bar_Chart_Q2.png" alt="Bar chart of screen size frequency" class="chart-img"/>
+      <p>Screen sizes range widely, from small sets to over 100 inches, but a handful of sizes are far more common than others, clustered around familiar sizes like 32, 55 and 65 inches.</p>
+
+      <p class="chart-label">Q3: Which brands have the greatest number of different models?</p>
+      <img src="Bar_Chart_Q3.png" alt="Bar chart of top brands by model count" class="chart-img"/>
+      <p>A small group of brands account for a disproportionate share of registered TVs. Looking at the brands with the most registered models in Australia, names like Kogan, LG, and Samsung Electronics have the largest model counts, meaning shoppers have the widest range of choice within those brands specifically.</p>
+
+      <p class="chart-label">Q4: Which type of screen technology consumes the least amount of power?</p>
+      <img src="Bar_Chart_Q4.png" alt="Bar chart of median power use by screen technology" class="chart-img"/>
+      <p>Screen size isn't the only factor. The underlying technology matters too. Comparing typical power use across the three main technologies, LCD panels use noticeably less power than LCD (LED) or OLED screens, making it worth checking not just the size, but what kind of panel is inside.</p>
+
+      <p class="chart-label">Q5: What is the relationship between screen size and power use?</p>
+      <img src="Scatter_Plot_Q5.png" alt="Scatter plot of screen size versus power use" class="chart-img"/>
+      <p>The pattern is clear once you look at the numbers. Bigger screens use more power. A TV under 32 inches averages around 105 kWh a year. Jump up to a 76 inch or larger screen, and that average climbs to 878 kWh a year, more than eight times higher. Screen size isn't just about how much space it takes on your wall. It's one of the biggest single factors in what you'll pay to run it.</p>
+
+      <p class="chart-label">Q6: What is the relationship between star rating and screen size?</p>
+      <img src="Scatter_Plot_Q6.png" alt="Scatter plot of star rating versus screen size" class="chart-img"/>
+      <p>Does a bigger TV mean a worse star rating? Not really. Looking at the real data, star ratings stay fairly similar across screen sizes, mostly landing between 4 and 8 stars whether a TV is 20 inches or 100 inches, likely because the rating system already accounts for size to some degree. But similar ratings don't always mean similar real-world efficiency: two TVs with nearly the same star rating can still differ by hundreds of kilowatt-hours a year. A higher star rating is a useful starting point, but it's worth comparing the actual labelled energy figure too, not just the star count alone.</p>
+
+      <p class="chart-label">Q7 (optional): Are there differences in power consumption between brands?</p>
+      <img src="Box_Plot_Q7.png" alt="Box plot of power use by brand" class="chart-img"/>
+      <p>Do certain brands tend to run more efficiently than others? Looking at power use broken down by brand, the answer is yes, and not just in the average. Some brands cluster tightly around a low, consistent power draw across their whole range. Others span a much wider range, from efficient models to some of the most power hungry TVs in the entire dataset. If you're loyal to a particular brand, it's worth checking whether that brand tends to run consistently efficient, or whether efficiency varies a lot from model to model.</p>
+
+      <p>So what should you actually expect to pay? Across every currently registered TV model in Australia, the average labelled energy use comes out to about 444 kWh a year. At a rough $0.33 per kWh, that's around $147 annually just to run one television. Of course, that average hides a lot of variation. A small TV might cost under $40 a year, while a very large one can run past $290. Knowing where a model you're considering sits relative to this average is a quick sanity check before you buy.</p>
+
+      <p>With all that in mind, here's how to actually cut what you'll pay to run a TV.</p>
+      <h2>Cutting TV running costs</h2>
+      <ol class="tips-list">
+        <li><strong>Check the star rating.</strong> Star ratings in the GEMS data run from 1 up to 9. Even within the same screen-size band, the most and least efficient models differ enormously.</li>
+        <li><strong>Turn off standby.</strong> Standby power adds up over a year, even for a screen that's rarely switched fully off.</li>
+        <li><strong>Match size to room.</strong> Bigger isn't always better. A screen much larger than the room needs draws more power than necessary.</li>
+        <li><strong>Tune the picture settings.</strong> Lowering brightness from its out-of-the-box default can noticeably cut running cost.</li>
+      </ol>
+    </section>
+
+    <!-- ===================== ABOUT US PAGE ===================== -->
+    <section id="page-about" class="page" hidden>
+      <h1>About this project</h1>
+      <p class="page-lede">
+        Wattwise was built by Aleeya Batrisya Binti Arni as a lab exercise for
+        COS30045 Data Visualisation at Swinburne University of Technology, Sarawak
+        Campus.
+      </p>
+
+      <h2>Purpose</h2>
+      <p>
+        This site is a refresher on HTML, CSS and JavaScript: a navigation menu driven
+        by JavaScript, styling from a single CSS file, and real content about appliance
+        energy consumption in the Australian market, drawn from the Australian
+        Government's GEMS Energy Rating register for televisions.
+      </p>
+
+      <h2>What's real vs. still to come</h2>
+      <p>
+        The TV figures on the Home and Televisions pages are real, sourced from the GEMS
+        register (5,018 models, exported 6 September 2026), with the cost column built
+        on a stated electricity-price assumption. The Televisions page now includes real chart visualisations and narrative context, built as part of a later data-storytelling task.
+      </p>
+
+      <h2>GenAI acknowledgement</h2>
+      <p>
+        GenAI assistance was used while building this site. Full notes on what it was
+        used for, and a short reflection on the experience, are in this project's
+        <code>README.md</code> file.
+      </p>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; <span id="year"></span> Aleeya Batrisya Binti Arni - built for COS30045 Data Visualisation, Swinburne Sarawak.</p>
+      <p class="genai-note">
+        Portions of this site's starter code and content were generated with the
+        assistance of GenAI. See <code>README.md</code> for full notes and reflection.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Page switching for the nav bar (from T01) -->
+  <script src="script.js"></script>
 
   <!-- D3 library -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -43,7 +213,7 @@
   <!-- T04-4: loads CSV then calls createBarChart -->
   <script src="t04-4-load.js"></script>
 
-  <!-- NEW T04-5: defines createBarChart -->
+  <!-- T04-5 to T04-7: defines createBarChart -->
   <script src="t04-5-bars.js"></script>
 
   <!-- Old js files (disabled) -->
